@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Michael Sammels</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="css/header.css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <ul style="float: right;">
+            <li><a href="http://portal.stir.ac.uk" target="_blank">Portal</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Home</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <div style="text-align: center;">
+            <img src="images/uos_logo.png" alt="UoS Logo" style="margin-top: 40px;"/>
+            <h1>Michael's Page</h1>
+            <h2>CSCU9B2</h2>
+            <ul class="customListStyle">
+                <li><a href="pages/week1.html">Practical 1</a></li>
+                <li><a href="pages/week2.html">Practical 2</a></li>
+                <li><a href="pages/week3.html">Practical 3</a></li>
+                <li><a href="pages/week4.html">Practical 4</a></li>
+                <li><a href="pages/week5.html">Practical 5</a></li>
+                <li><a href="pages/week6.html">Practical 6</a></li>
+                <li><a href="pages/week7.html">Practical 7</a></li>
+                <li><a href="pages/week8.html">Practical 8</a></li>
+            </ul>
+            <p><em>Practical 8 may or may not work as advertised. There is no checkpoint.</em></p>
+            <p><a href="assignment/index.html">Assignment</a> (CSCU9B2)</p>
+            <p><a href="redhat/index.html">Red Hat</a> (CSCU9A2)</p>
+        </div>
+    </div>
+    <div id="footer">
+        <ul>
+            <li>&copy; 2019 Michael Sammels</li>
+        </ul>
+    </div>
+</div>
+<script>
+    window.onscroll = function () {
+        stickyHeader()
+    };
+
+    let header = document.getElementById("header");
+    let sticky = header.offsetTop;
+
+    function stickyHeader() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>
+</body>
+</html>

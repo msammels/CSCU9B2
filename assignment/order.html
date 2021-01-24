@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>CSCU9B2 Assignment | Order</title>
+    <link href="default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <nav id="topnav">
+        <ul>
+            <li><a href="index_2629330.html">Home</a></li>
+            <li><a class="active" href="#">Order</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="right"><a href="#">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Canvas where the bag is drawn -->
+<canvas id="bagCanvas" width="300" height="150">
+    Your browser does not support the HTML5 Canvas tag.
+</canvas>
+
+<!-- Main content -->
+<div style="padding: 0 16px;">
+
+    <!-- Bag color -->
+    <h2>Bag Color</h2>
+    <p>
+        Here you can choose the color of the bag. Please select from one of the four colours below
+    </p>
+
+    <button type="button" id="col_red" onclick="changeColorRed();">Red</button>
+    <button type="button" id="col_green" onclick="changeColourGreen();">Green</button>
+    <button type="button" id="col_blue" onclick="changeColourBlue();">Blue</button>
+    <button type="button" id="col_white" onclick="changeColourWhite();">White</button>
+
+    <br /><br /><hr />
+
+    <!-- Bag text -->
+    <h2>Bag Text</h2>
+    <p>
+        You may also wish to apply some text to the bag. This will appear on both sides of the bag when printed
+    </p>
+    <input type="text" id="logo_text" placeholder="Your logo text goes here">
+    <button type="submit" id="logo_button" onclick="applyText();">Apply</button>
+
+    <br /><br /><hr />
+
+    <!-- Number of bags -->
+    <h2>Number of Bags</h2>
+    <p>
+        How many of these bags would you like to order (100 minimum)?
+    </p>
+
+    <label>
+        <select name="bagNumbers" id="bag_numbers" onchange="totalCost();">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+            <option value="500">500</option>
+        </select>
+    </label>
+
+    <br /><br /><hr />
+
+    <!-- Total cost of the bag -->
+    <h2>Total Cost</h2>
+    <p>
+        To calculate the total cost of your order, please click the button below
+    </p>
+    <button type="submit" onclick="btnSubmit();">Submit</button>
+</div>
+
+<!-- Javascript functions for the above HTML -->
+<script>
+    // Global variables
+
+    /* Canvas variables */
+    let c = document.getElementById("bagCanvas");
+    let ctx = c.getContext("2d");
+
+    /* Bag choice variables */
+    let bagColor = "Error: no colour selected";
+    let textChoice = "Error: no text specified";
+
+    // Draw the carrier bag
+    ctx.beginPath();
+    ctx.arc(80, 65, 40, 60, 12.23);     // The handle
+    ctx.rect(30.5, 53, 98, 95);         // The lower portion
+    ctx.stroke();
+
+    // Change the color to red
+    function changeColorRed() {
+        ctx.fillStyle = "#990000";
+        ctx.fillRect(30.5, 53, 98, 95);
+        ctx.stroke();
+        bagColor = "Red";      // User selected red
+    }
+
+    // Change the colour to green
+    function changeColourGreen() {
+        ctx.fillStyle = "#003300";
+        ctx.fillRect(30.5, 53, 98, 95);
+        ctx.stroke();
+        bagColor = "Green";     // User selected green
+    }
+
+    // Change the colour to blue
+    function changeColourBlue() {
+        ctx.fillStyle = "#000099";
+        ctx.fillRect(30.5, 53, 98, 95);
+        ctx.stroke();
+        bagColor = "Blue";      // User selected blue
+    }
+
+    // Change the colour to white
+    function changeColourWhite() {
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(30.5, 53, 98, 95);
+        bagColor = "White";     // User selected white
+    }
+
+    // Change bag logo text
+    function applyText() {
+        ctx.fillStyle = "#000";
+        let text = document.getElementById("logo_text").value;
+        ctx.font = "15px Arial";
+        ctx.fillText(text, 40, 105);
+        textChoice = text;      // Text the user entered
+    }
+
+    // Calculate the total cost of the bag. Minimum 100 bags at 3p each
+    function totalCost() {
+        let x = document.getElementById("bag_numbers").value;
+        let y;
+
+        switch (x) {
+            case "100":
+                y = "£3.00";
+                break;
+            case "200":
+                y = "£6.00";
+                break;
+            case "300":
+                y = "£9.00";
+                break;
+            case "400":
+                y = "£12.00";
+                break;
+            case "500":
+                y = "£15.00";
+                break;
+            default:
+                y = "£3.00";
+                break;
+        }
+        return y;
+    }
+
+    // The submit button
+    function btnSubmit() {
+        alert("Summary of order\n" +
+            "Bag colour: " + bagColor + "\n" +
+            "Text: " + textChoice + "\n" +
+            "Total cost: " + totalCost());
+    }
+</script>
+</body>
+</html>

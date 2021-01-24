@@ -1,0 +1,89 @@
+/**
+ * 2629330
+ * CSCU9B2 | Assignment
+ * default.css
+ */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Top-level navigation */
+nav#topnav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #006938;
+}
+
+/* General list layout and items */
+nav#topnav li {
+    float: left;
+}
+
+nav#topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav#topnav li a:hover:not(.active) {
+    background-color: white;
+    color: #006938;
+}
+
+nav#topnav a.active {
+    background-color: white;
+    color: #006938;
+}
+
+/* For the "Login" button */
+nav#topnav li.right {
+    float: right;
+}
+
+/* Make sure it works on any size of screen */
+@media screen and (max-width: 600px) {
+    nav#topnav li.right,
+    nav#topnav li {
+        float: none;
+    }
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    clear: both;
+    height: 60px;
+    overflow: hidden;
+    padding: 0;
+    background: #ddd;
+    text-align: center;
+    font-size: 12px;
+}
+
+#footer ul {
+    margin: 20px 0 0;
+}
+
+#footer li {
+    display: inline;
+    margin: 0 1.3em;
+}
+
+/* The sticky header class, for the JavaScript function */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}

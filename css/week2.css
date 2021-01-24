@@ -1,0 +1,28 @@
+/**
+ * Michael Sammels
+ * CSCU9B2
+ * Week 2 CSS
+ */
+
+.header_red {
+	color:				red;
+	padding:			0 16px;
+}
+
+.header_green {
+	color:				green;
+	padding:			0 16px;
+}
+
+.header_blue {
+	color:				blue;
+	padding:			0 16px;
+}
+
+.normal {
+	color:				black;
+}
+
+.small-font {
+	font-size:			12px;
+}

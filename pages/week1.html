@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Michael Sammels</title>
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link rel="stylesheet" type="text/css" href="../css/header.css" />
+		<style>
+			p, h1, h2, pre {
+				margin:		10px;
+				padding:	10px;
+			}
+			th, td {
+				padding:	5px;
+				text-align:	left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<ul style="float: right;">
+					<li><a href="http://portal.stir.ac.uk" target="_blank" title="Portal">Portal</a></li>
+				</ul>
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+				</ul>
+			</div>
+			<div id="main">
+				<div style="text-align: center;">
+					<h1>Practical 1</h1>
+					<hr />
+				</div>
+				<h1>Michael Sammels | Home Page</h1>
+				<p>This is <b>my very own web page</b> all about me!</p>
+				<p><img src="../images/uos_shield.png" alt="UoS Shield" height="32" width="32" /></p>
+				<p>I am a student, studying <em>Computer Science</em> at the <em>University of Stirling</em>.</p>
+				
+				<hr />
+				
+				<h2>Module List</h2>
+				<p>I study the following modules:</p>
+				
+				<table style="width: 100%; table-layout: fixed">
+					<caption><b>Module List</b></caption>
+					<tr>
+						<th style="font-variant: small-caps">Module Code</th>
+						<th style="font-variant: small-caps">Module Name</th>
+					</tr>
+					<tr>
+						<td>CSCU9A2</td>
+						<td>Programming and User Interface Design</td>
+					</tr>
+					<tr>
+						<td>CSCU9B2</td>
+						<td>Making the Most of the World Wide Web</td>
+					</tr>
+					<tr>
+						<td>PDMU9L4/5</td>
+						<td>Data Skills / Further Data Skills</td>
+					</tr>
+				</table>
+				
+				<hr />
+				
+				<h2>Interests</h2>
+				<p>There isn't much to say here. My interests are:</p>
+				<ul>
+					<li>piano</li>
+					<li>photography</li>
+					<li>programming</li>
+				</ul>
+			</div>
+			<div id="footer">
+				<ul>
+					<li>&copy; 2019 Michael Sammels</li>
+				</ul>
+			</div>
+		</div>
+		<script>
+		window.onscroll = function() {stickyHeader()};
+		
+		var header = document.getElementById("header");
+		var sticky = header.offsetTop;
+		
+		function stickyHeader() {
+			if (window.pageYOffset > sticky) {
+				header.classList.add("sticky");
+			} else {
+				header.classList.remove("sticky");
+			}
+		}
+		</script>
+	</body>
+</html>

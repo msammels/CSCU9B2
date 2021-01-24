@@ -1,0 +1,47 @@
+/**
+ * Michael Sammels
+ * CSCU9B2
+ * Header CSS
+ */
+
+#header {
+	height:				31px;
+	background:			#003300;
+	line-height:		27px;
+	color:				white;
+	width:				100%;
+}
+
+#header ul {
+	margin:				0;
+	padding:			0 16px;
+}
+
+#header ul li {
+	display:			inline;
+	margin:				0;
+	padding:			0 4px;
+}
+
+#header a {
+	color:				white;
+	text-decoration:	none;
+	padding:			0px 1px;
+}
+
+#header a:hover {
+	background-color:	white;
+	color:				#008;
+}
+
+#container {
+	min-height:			100%;
+	height:				100%;
+	position:			relative;
+	background:			#fff;
+}
+
+.sticky {
+	position:			fixed;
+	top:				0;
+	width:				100%;

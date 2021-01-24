@@ -1,0 +1,80 @@
+/**
+ * Michael Sammels
+ * CSCU9B2
+ * Default CSS
+ */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    font: 13px Segoe UI, Verdana, Tahoma, DejaVu Sans, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#main {
+    min-height: 240px;
+    margin: 30px;
+    overflow: auto;
+    padding: 15px 0 60px;
+}
+
+#floated-imgs {
+    float: right;
+}
+
+#floated-imgs img {
+    display: block;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    clear: both;
+    height: 60px;
+    overflow: hidden;
+    padding: 0;
+    background: #ddd;
+    text-align: center;
+    font-size: 12px;
+}
+
+#footer ul {
+    margin: 20px 0 0;
+}
+
+#footer li {
+    display: inline;
+    margin: 0 1.3em;
+}
+
+a:visited {
+    color: black;
+}
+
+.customListStyle {
+    font-style: italic;
+    font-size: 14px;
+    color: red;
+    display: inline;
+}
+
+.customListStyle a {
+    color: #0000a2;
+}
+
+.customListStyle a:hover {
+    background-color: #ddd;
+}
+
+.customListStyle a:visited {
+    color: black;
+}

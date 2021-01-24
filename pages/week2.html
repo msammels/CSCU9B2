@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Michael Sammels | Week 2</title>
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link rel="stylesheet" type="text/css" href="../css/header.css" />
+		<link rel="stylesheet" type="text/css" href="../css/week2.css" />
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<ul style="float: right;">
+					<li><a href="http://portal.stir.ac.uk" target="_blank" title="Portal">Portal</a></li>
+				</ul>
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+				</ul>
+			</div>
+			<div id="main">
+				<div style="text-align: center;">
+					<h1>Practical 2</h1>
+					<hr />
+					<p><em>The following is an example of various CSS tags</em></p>
+				</div>
+				<div class="header_red">
+					<h1>Header | Red</h1>
+					<p>This header is red. However, <span class="normal">this font is black</span></p>
+				</div>
+				<div class="header_green">
+					<h1>Header | Green</h1>
+					<p>This header is green. However, <span class="normal">this font is black</span></p>
+				</div>
+				<div class="header_blue">
+					<h1>Header | Blue</h1>
+					<p>This header is blue. However, <span class="normal">this font is black</span></p>
+				</div>
+
+				<hr />
+
+				<ul class="small-font">
+					<li><b>This is</b></li>
+					<li>an example</li>
+					<li><b>of an unorderd list</b></li>
+				</ul>
+
+				<ol class="small-font">
+					<li><b>This is</b></li>
+					<li>an example</li>
+					<li><b>of an ordered list</b></li>
+				</ol>
+			</div>
+			<div id="footer">
+				<ul>
+					<li>&copy; 2019 Michael Sammels</li>
+				</ul>
+			</div>
+		</div>
+		<script>
+		window.onscroll = function() {stickyHeader()};
+
+		var header = document.getElementById("header");
+		var sticky = header.offsetTop;
+
+		function stickyHeader() {
+			if (window.pageYOffset > sticky) {
+				header.classList.add("sticky");
+			} else {
+				header.classList.remove("sticky");
+			}
+		}
+		</script>
+	</body>
+</html>

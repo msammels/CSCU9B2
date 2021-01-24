@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Michael Sammels | Week 7</title>
+    <link href="../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/header.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/week2.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <ul style="float: right;">
+            <li><a href="http://portal.stir.ac.uk" target="_blank" title="Portal">Portal</a></li>
+        </ul>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <div style="text-align: center;">
+            <h1>Practical 7</h1>
+            <hr/>
+
+            <canvas id="myCanvas" width="800" height="600"></canvas>
+
+            <script>
+                let context = document.getElementById('myCanvas').getContext("2d");
+                let img = new Image();
+
+                img.onload = function() {
+                    context.drawImage(img, 0, 0, 800, 600);
+                    context.font = "30px Arial";
+                    context.strokeStyle = "red";
+                    context.fillStyle = "red";
+
+                    context.lineWidth = 2;
+                    // Text
+                    context.fillText("Castle wall", 600, 130);
+                    context.fillText("Cliff", 30, 200);
+                    context.fillText("Trees", 10, 550);
+
+                    // --- Arrows ---
+
+                    // Castle wall
+                    context.beginPath();
+                    context.moveTo(510, 340);
+                    context.lineTo(590, 150);
+                    context.stroke();
+
+                    // Cliff
+                    context.beginPath();
+                    context.moveTo(200, 340);
+                    context.lineTo(90, 200);
+                    context.stroke();
+
+                    // Trees
+                    context.beginPath();
+                    context.moveTo(95, 540);
+                    context.lineTo(160, 540);
+                    context.stroke();
+                };
+
+                img.src = "../images/Stirlingcastle.jpg";
+            </script>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <ul>
+        <li>&copy; 2019 Michael Sammels</li>
+    </ul>
+</footer>
+<script>
+    window.onscroll = function () {
+        stickyHeader()
+    };
+
+    let header = document.getElementById("header");
+    let sticky = header.offsetTop;
+
+    function stickyHeader() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>
+</body>
+</html>

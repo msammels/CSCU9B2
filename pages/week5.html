@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michael Sammels | Week 5</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/header.css" />
+    <link rel="stylesheet" type="text/css" href="../css/week2.css" />
+
+    <script>
+        var whichtime = 0;
+
+        function increment(number) {
+            return (number + 1);
+        }
+
+        function newtext() {
+            if (whichtime == 0) {
+                document.thisform.thistext.value = "Some dead flash text";
+                document.thisform.thisbutton.value = "Do not press this button again";
+                whichtime = 1;
+            } else {
+                document.thisform.thisbutton.value = "I told you not to do that";
+            }
+        }
+
+        function update() {
+            var y = 0;
+            z = z - 1;
+            document.nextform.thistext.value = Math.max(0, z - 1);
+
+            if (z == 1) {
+                document.nextform.anotherbutton.value = "Ignition";
+            } else if (z == 0) {
+                document.nextform.anotherbutton.value = "Lift Off";
+            }
+        }
+
+        /* This code is Copyright (c) 1996 Nick Heinle and Athenia Associates,
+         * all rights reserved. In order to receive the right to license this
+         * code for use on your site the original code must be copied from the
+         * Web site webreference.com/javascript/. License is granted to user to
+         * reuse this code on their own Web site if and only if this entire copyright
+         * notice is included. Code written by Nick Heinle of webreference.com.
+         */
+
+        function getCookie (name) {
+            var dcookie = document.cookie;
+            var cname = name + "=";
+            var clen = dcookie.length;
+            var cbegin = 0;
+            while (cbegin < clen) {
+                var vbegin = cbegin + cname.length;
+                if (dcookie.substring(cbegin, vbegin) == cname) {
+                    var vend = dcookie.indexOf (";", vbegin);
+                    if (vend == -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                }
+                cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                if (cbegin == 0) break;
+            }
+            return null;
+        }
+
+        function setCookie (name, value, expires) {
+
+            if (!expires) expires = new Date();
+            document.cookie = name + "=" + escape (value) +
+                "; expires=" + expires.toUTCString() +  "; path=/";
+        }
+
+        function delCookie (name) {
+            var expireNow = new Date();
+            document.cookie = name + "=" +
+                "; expires=Thu, 01-Jan-70 00:00:01 GMT" +  "; path=/";
+        }
+
+        function test(form1) {
+            var str = new String(form1.text1.value);
+
+            if (form1.text1.value == "") {
+                alert("Please enter a string!");
+            } else {
+                alert("Thank you: you entered " + form1.text1.value);
+            }
+
+            switch (str.toLowerCase()) {
+                case "no":
+                    alert("You entered no");
+                    break;
+                case "yes":
+                    alert("You entered yes");
+                    break;
+                default:
+                    alert("Please enter yes or no. Case insensitive");
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <ul style="float: right;">
+                <li><a href="http://portal.stir.ac.uk" target="_blank" title="Portal">Portal</a></li>
+            </ul>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <div style="text-align: center;">
+                <h1>Practical 5</h1>
+                <hr />
+            </div>
+            <p>The code inside the script tag is:</p>
+            <p>
+                <tt>today = new Date();</tt>
+            </p>
+            <p>Creates a Date object, and stores it in the variable <tt>today</tt></p>
+            <tt>
+                document.write("&lt;p&gt;&lt;b&gt;todays's date is &lt/b&gt"
+                + today.getDate() + " " + (today.getMonth() + 1) + " " + today.getYear()));
+            </tt>
+            <p>Writes out the day, month and year, by using methods in the Date object.</p>
+            <p>
+                <tt>
+                    window.document.write("&lt;p&gt;&lt;b&gt;the time is&lt/b&gt"
+                    + today.getHours() + ":" + today.getMinutes());
+                </tt>
+            </p>
+            <p>Writes out the time, using methods in the Date object.</p>
+            <p>
+                <tt>
+                    document.write("&lt;p&gt;&lt;b&gt;this can also be written out as &lt/b&gt"
+                    + today.toGMTString());
+                </tt>
+            </p>
+            <p>Can write out the whole content of the Date object as a single string.</p>
+
+            <p>getDate() method of date returns the day of the month.</p>
+            <p>getMonth() method returns the month <b>as a number between 0 and 11</b>.</p>
+            <p>getYear() method returns the year (as a number since 1900).</p>
+            <p>
+                getHours() method returns the hour of the day, and the getMinutes() method returns the
+                minutes of the time.
+            </p>
+            <p>toGMTString() takes the internal date format and returns a complete string of date and time.</p>
+
+            <hr />
+
+            <script>
+                today = new Date();
+
+                document.write("<p><b>Today's date is </b>" + today.getDate() + " "
+                + (today.getMonth() + 1) + " " + (today.getFullYear()));
+
+                document.write("<p><b>The time is </b>" + today.getHours() + ":"
+                + today.getMinutes());
+
+                document.write("<p><b>This can also be written out as </b>"
+                + today.toUTCString());
+
+                // Practical 5 examples
+                if (today.getDate() == 3) {
+                    document.write("<br><b>It's the third day today!</b>");
+                }
+
+                if ((today.getDate() == 2) && (today.getMonth() == 11)) {
+                    document.write("It's the 2nd December");
+                }
+            </script>
+
+            <hr />
+            <h1>JSex3: More JavaScript Examples</h1>
+            <h2>Using JavaScript with forms to call functions</h2>
+            <p>
+                Using JavaScript, HTML forms can call functions.
+                In a form declaration one can select a function to call.
+            </p>
+            <p>
+                When the button is pressed, the function nexttext() is called and
+                the text in the text field is updated by the function.
+            </p>
+
+            <form name="thisform" action="">
+                <input type="button" id="thisbutton" value="Push to Set" onclick="newtext()">
+                <input type="text" id="thistext" value="" readonly="readonly" disabled="disabled">
+            </form>
+
+            <h2>JavaScript and the declaration of variables</h2>
+            <p>
+                JavaScript allows for the declaration of variables,
+                and having declared a variable, <tt>z</tt>, one can now refer to <tt>z</tt> later.
+            </p>
+
+            <script>
+                var z = 10;
+            </script>
+
+            <p>
+                Using this variable <tt>z</tt>, one can keep a count of how often a button has
+                been clicked.
+            </p>
+            <p>
+                The function called when the button is clicked increments <tt>z</tt>,
+                then sets the value in the text field of the form:
+            </p>
+
+            <form name="nextform" action ="">
+                <input type="button" id="anotherbutton" value="Push to Decrement" onclick="update() ">
+                <input type="text" id="thistext" value=10 readonly="readonly" disabled="disabled">
+            </form>
+
+            <h2>Simple Functions</h2>
+            <p> One can, of course, simply call a function from within a JavaScript script.
+                <br>
+
+                <script>
+                    x = 10 ;
+                    document.write("<br>Simply using a variable and a function directly..." + x ) ;
+                    document.write("<br> or in a loop...<br>") ;
+                    for (i = 1 ; i < 10; i++)
+                    {
+                        x = increment(x) ;
+                        document.write((x) + "   " + (x * x) + "<br>") ;
+                    }
+                </script>
+            </p>
+            <hr />
+            <h1>JSex4: avaScript Cookie Writing and Reading</h1>
+
+            <p> This document sets a single cookie.</p>
+            <p> To alter the name of the cookie that is set, alter the value cookieName is set to.</p>
+            <script>
+                var expdate = new Date();
+                expdate.setTime(expdate.getTime() +  (24 * 60 * 60 * 1 * 365));
+                var cookieName = "Chocolate";
+                setCookie(cookieName, "true", expdate);
+            </script>
+
+            <p>The cookie is now set. Now we read the cookies.<p>
+            <script>
+                if (document.cookie == "") {
+                    document.write("No cookies set") ;
+                } else {
+                    thiscookie = document.cookie.split("; ") ;
+                    document.write("Number of cookies = " + thiscookie.length + "<p>") ;
+                    for (i = 0; i < thiscookie.length; i++) {
+                        document.write("Cookie Name = " + thiscookie[i].split("=")[0] + "; ") ;
+                        document.write("Cookie Value = " + thiscookie[i].split("=")[1] + "<p>") ;
+                    }
+                }
+            </script>
+
+            <hr />
+            <h1>JSex5: Simple validation example using JavaScript</h1>
+            <p>Using JavaScript to validate a simple form</p>
+            <form name="first" action="">
+                Enter a string: <br />
+                <input type="text" name="text1">
+                <input type="button" value="Test the input" onClick="test(this.form)">
+            </form>
+
+            <br />
+        </div>
+    </div>
+    <footer id="footer">
+        <ul>
+            <li>&copy; 2019 Michael Sammels</li>
+        </ul>
+    </footer>
+    <script>
+        window.onscroll = function() {stickyHeader()};
+
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+
+        function stickyHeader() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+    </script>
+    </body>
+</html>

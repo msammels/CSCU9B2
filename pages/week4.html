@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Michael Sammels | Week 4</title>
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link rel="stylesheet" type="text/css" href="../css/header.css" />
+		<link rel="stylesheet" type="text/css" href="../css/week2.css" />
+
+		<script>
+			// Leap year testing
+			function leapYear(year) {
+				return ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+			}
+
+			function displayLeapYear() {
+				var intLeapYear = document.getElementById('leapYearIn').value;
+
+				if (leapYear(intLeapYear)) {
+					document.getElementById("leapYearResult").innerHTML = "<p>The year " + intLeapYear + " is a leap year.</p>";
+				} else {
+					document.getElementById("leapYearResult").innerHTML = "<p>The year " + intLeapYear + " is not a leap year.</p>";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<ul style="float: right;">
+					<li><a href="http://portal.stir.ac.uk" target="_blank" title="Portal">Portal</a></li>
+				</ul>
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+				</ul>
+			</div>
+			<div id="main">
+				<div style="text-align: center;">
+					<h1>Practical 4</h1>
+					<hr />
+				</div>
+				<script>
+					var str = "String";
+					var num = 10;
+					var bool = true;
+
+					// Print the values of the variables
+					document.write("<p>The value of variable \"str\" is " + str + "</p>");
+					document.write("<p>The value of variable \"num\" is " + num + "</p>");
+					document.write("<p>The value of variable \"bool\" is " + bool + "</p>");
+
+					// Print the number of characters in the string
+					document.write("<p>There are " + str.length + " characters in the string \"" + str + "\"</p>");
+
+					// The "books" object
+					var books = {
+						author: 	"Ant Middleton",
+						title:		"First Man In: Leading From The Front",
+						numPages:	310,
+						pubYear:	2019,
+						Info: function() {
+							document.write("<hr />");
+							document.write("<p>Book Author: " + this.author + "</p><p>Book Title: " + this.title + "</p><p>Number of pages: " + this.numPages + "</p><p>Publication Year: " + this.pubYear);
+						}
+					};
+
+					books.Info();
+
+					// Very basic calculator - if / else
+					var x1 = 10;
+					var x2 = 20;
+					var opr = "+";
+
+					document.write("<hr />");
+					document.write("<h2>Very Basic Calculator - If/Else</h2>");
+
+					if (opr == "+") {
+						document.write("<p>" + x1 + " " + opr + " " + x2 + " = " + (x1 + x2) + "</p>");
+					} else if (opr == "-") {
+						document.write("<p>" + x1 + " " + opr + " " + x2 + " = " + (x1 - x2) + "</p>");
+					} else if (opr == "*") {
+						document.write("<p>" + x1 + " " + opr + " " + x2 + " = " + (x1 * x2) + "</p>");
+					} else if (opr == "/") {
+						document.write("<p>" + x1 + " " + opr + " " + x2 + " = " + (x1 / x2) + "</p>");
+					}
+
+					// Very basic calculator - switch
+					document.write("<hr />");
+					document.write("<h2>Very Basic Calculator - Switch</h2>");
+
+					switch (opr) {
+						case "+" :
+							document.write("<p>" + x1 + " " + opr + " " + x2 + " = " + (x1 + x2) + "</p>");
+							break;
+						case "-" :
+							document.write("<p>" + x1 + " " + opr + " " + x2 + " = " + (x1 - x2) + "</p>");
+							break;
+						case "*" :
+							document.write("<p>" + x1 + " " + opr + " " + x2 + " = " + (x1 * x2) + "</p>");
+							break;
+						case "/" :
+							document.write("<p>" + x1 + " " + opr + " " + x2 + " = " + (x1 / x2) + "</p>");
+							break;
+
+						default:
+							document.write("<p>Error: no operation given</p>");
+							break;
+					}
+
+					// Print even numbers below 50
+					function printEven(num) {
+						document.write("<hr />");
+						document.write("<h2>Print Even Numbers Below 50</h2>");
+						for (let i = 1; i < num; i++) {
+							if (i % 2 === 0) {
+								document.writeln("<p>" + i + "</p>");
+							}
+						}
+					}
+
+					printEven(50);
+				</script>
+				<hr />
+				<h2>Calculate Leap Years</h2>
+				<input type="text" pattern="\d*" maxlength="4" id="leapYearIn" />
+				<button onclick="displayLeapYear()" type="submit">Submit</button>
+				<div id="leapYearResult"></div>
+			</div>
+		</div>
+		<div id="footer">
+			<ul>
+				<li>&copy; 2019 Michael Sammels</li>
+			</ul>
+		</div>
+		<script>
+		window.onscroll = function() {stickyHeader()};
+
+		var header = document.getElementById("header");
+		var sticky = header.offsetTop;
+
+		function stickyHeader() {
+			if (window.pageYOffset > sticky) {
+				header.classList.add("sticky");
+			} else {
+				header.classList.remove("sticky");
+			}
+		}
+		</script>
+	</body>
+</html>

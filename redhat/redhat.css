@@ -1,0 +1,94 @@
+/*   ********************************************
+     * CSCU9A2. Practical Initial CSS File *
+     ********************************************   */
+
+body {
+    background-color: red; /* red background for the whole page */
+    text: white; /* white coloured text */
+}
+
+p.big {
+    color: black; /* black coloured text */
+    font-size: 120%;
+    font-family: lucida;
+    font-weight: bold;
+}
+
+p.small {
+    color: black; /* black coloured text */
+    font-size: 100%;
+    font-family: lucida;
+}
+
+ul.order {
+    color: black; /* black coloured text */
+    font-size: 100%;
+    font-family: lucida;
+    list-style-image: url(instock.gif);
+    list-style-position: inside;
+}
+
+p.topmenu {
+    border: groove silver;
+    background-color: white; /* white coloured background */
+    margin-left: auto; /* centre paragraph on page */
+    margin-right: auto;
+    text-align: center; /* centre contents of paragraph */
+    width: 700px;
+    height: 82px;
+    font-size: 12pt;
+    font-family: lucida;
+}
+
+p.bottommenu {
+    border: groove silver;
+    background-color: white; /* white coloured background */
+    margin-left: auto; /* centre paragraph on page */
+    margin-right: auto;
+    text-align: center; /* centre contents of paragraph */
+    width: 450px;
+    font-size: 12pt;
+    font-family: lucida;
+}
+
+img.logo {
+    vertical-align: middle;
+}
+
+img.hats {
+    float: left;
+    vertical-align: middle;
+}
+
+div.caps {
+    margin: 0 0 -5px 0;
+}
+
+div.content {
+    border: solid silver;
+    background-color: silver; /* silver coloured background */
+    height: 240px;
+}
+
+div.content2 {
+    border: solid silver;
+    background-color: silver; /* silver coloured background */
+    height: 105px;
+    width: 320px;
+}
+
+a:link {
+    text-decoration: underline; /* links appear underlined */
+    color: black; /* black links */
+    font-family: lucida
+}
+
+a:visited {
+    text-decoration: underline; /* visited links underlined */
+    color: rgb(100, 0, 0); /* dark red visited links */
+    font-family: lucida
+}
+
+
+
+

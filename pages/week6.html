@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Michael Sammels | Week 6</title>
+    <link href="../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/header.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/week2.css" rel="stylesheet" type="text/css"/>
+
+    <script>
+        // --- Audio ---
+
+        function displayText(location, textElement) {
+            document.getElementById(location).innerHTML = textElement;
+        }
+
+        // Display audio info
+        function showAudioInfo() {
+            1;
+            let myAudio = document.getElementById('drums');
+
+            displayText('locator', "Volume is " + myAudio.volume);
+            displayText('locator2', "Duration is " + myAudio.duration);
+            displayText('locator3', "Source is " + myAudio.currentSrc);
+        }
+
+        // Pause audio and display current time on the screen
+        function pauseAudio() {
+            let myAudio = document.getElementById('drums');
+
+            myAudio.pause();
+            displayText('locator4', "Current paused time is " + myAudio.currentTime);
+        }
+
+        // Rewind audio by 2 seconds
+        function rewindAudio() {
+            let myAudio = document.getElementById('drums');
+
+            myAudio.currentTime -= 2.0;
+        }
+
+        // Restart audio
+        function restartAudio() {
+            let myAudio = document.getElementById('drums');
+
+            myAudio.currentTime = 0;
+        }
+
+        // --- Video ---
+
+        // Show video info
+        function showVideoInfo() {
+            let myVideo = document.getElementById('LMFAO1');
+            let mySource1 = document.getElementById('srcmp4');
+            let mySource2 = document.getElementById('srcogg');
+
+            displayText('locator5', "Volume is " + myVideo.volume);
+            displayText('locator6', "Duration is " + myVideo.duration);
+            displayText('locator7', "Source is " + mySource1.src + "<br>or perhaps " + mySource2.src);
+        }
+
+        // Pause the video
+        function pauseVideo() {
+            let myVideo = document.getElementById('LMFAO1');
+
+            myVideo.pause();
+        }
+
+        // --- Images ---
+        /*function mouseChange1() {
+            document.images['image1'].src = "../images/arrowb1.gif";
+        }
+
+        function mouseReplace1() {
+            document.images['image1'].src = "../images/arrowb2.gif";
+        }
+
+        function mouseChange2() {
+            document.images['image2'].src = "../images/arrowb3.gif";
+        }
+
+        function mouseReplace2() {
+            document.images['image2'].src = "../images/arrowb4.gif";
+        }*/
+
+        function mousechange() {
+            if (switch1 == 0) {
+                document.images['image1'].src = "../images/arrowb1.gif";
+                switch1 = 1;
+            } else {
+                document.images['image1'].src = "../images/arrowb3.gif";
+                switch1 = 0;
+            }
+        }
+
+        function mousereplace() {
+            if (switch1 == 0) {
+                document.images['image1'].src = "../images/arrowb2.gif";
+            } else {
+                document.images['image1'].src = "../images/arrowb4.gif";
+            }
+        }
+
+        // --- HTML Attributes ---
+        function changeToButton() {
+            document.getElementById("changeattribute").setAttribute("type", "button");
+        }
+
+        function changeToField() {
+            document.getElementById("changeattribute").setAttribute("type", "field");
+        }
+
+        function createErrorMessage() {
+            document.getElementById("message1").innerHTML = "Error in reading file";
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <ul style="float: right;">
+            <li><a href="http://portal.stir.ac.uk" target="_blank" title="Portal">Portal</a></li>
+        </ul>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <div style="text-align: center;">
+            <h1>Practical 6</h1>
+            <hr/>
+        </div>
+        <h2>Audio</h2>
+        <audio controls id="drums">
+            <source id="srcmp3" src="../media/drums1.mp3" type="audio/mpeg">
+            <source id="srcogg" src="../media/drums1a.ogg" type="audio/ogg">
+        </audio>
+
+        <p id="locator">The volume level will go here</p>
+        <p id="locator2">The sound duration will go here</p>
+        <p id="locator3">The sound location will go here</p>
+        <p id="locator4">The current time (paused) will go here</p>
+
+        <button onclick="showAudioInfo()" type="button">Display info</button>
+        <button onclick="document.getElementById('drums').play();" type="button">Play</button>
+        <button onclick="pauseAudio();" type="button">Pause</button>
+        <button onclick="rewindAudio();" type="button">Rewind</button>
+        <button onclick="restartAudio();" type="button">Restart</button>
+
+        <br/>
+        <h2>Video</h2>
+        <video controls height="400" id="LMFAO1" preload="auto" width="800">
+            <source id="srcmp4" src="../media/LMFAO.mp4" type="video/mp4">
+            <source id="srcogg" src="../media/LMFAO.ogg" type="video/ogg">
+        </video>
+
+        <p id="locator5">The volume level will go here</p>
+        <p id="locator6">The video duration will go here</p>
+        <p id="locator7">The video location will go here</p>
+
+        <button onclick="showVideoInfo()" type="button">Display info</button>
+        <button onclick="document.getElementById('LMFAO1').play()" type="button">Play</button>
+        <button onclick="pauseVideo()" type="button">Pause</button>
+
+        <br/>
+        <h2>Images</h2>
+
+        <script>
+            let switch1 = 0;
+        </script>
+
+        <p>Mouse over the arrows to change their directions!</p>
+        <a href="#" onmouseover="mousechange()" onmouseout="mousereplace()">
+            <img src="../images/arrowb1.gif" id="image1" alt="Right arrow" width="100" height="100" style="vertical-align: middle">
+        </a>
+
+        <a href="#" onmouseover="mouseChange2()" onmouseout="mouseReplace2()">
+            <img src="../images/arrowb3.gif" id="image2" alt="Left arrow" width="100" height="100" style="vertical-align: middle">
+        </a>
+
+        <br/>
+        <h2>HTML Attributes</h2>
+        <p>Let's change some HTML Attributes</p>
+        <input id="changeattribute" value="Value 1">
+        <button onclick="changeToButton()" type="button">Change to button</button>
+        <button onclick="changeToField()" type="button">Change to input</button>
+
+        <p id="message1">Error message goes here</p>
+        <button onclick="createErrorMessage()" type="button">Create Error</button>
+    </div>
+</div>
+<footer id="footer">
+    <ul>
+        <li>&copy; 2019 Michael Sammels</li>
+    </ul>
+</footer>
+<script>
+    window.onscroll = function () {
+        stickyHeader()
+    };
+
+    let header = document.getElementById("header");
+    let sticky = header.offsetTop;
+
+    function stickyHeader() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+
+    let myVideo = document.getElementById('LMFAO1');
+
+    myVideo.onloadeddata = function () {
+        alert("Video is ready");
+    }
+</script>
+</body>
+</html>
